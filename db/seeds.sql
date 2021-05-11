@@ -9,3 +9,10 @@ Insert	into	company_role (title, salary, department_id) values
 ('Junior Attorney', 70000.00, 3),
 ('Associate Attorney', 80000.00, 3),
 ('Senior Associate', 90000.00, 3);
+
+Insert into employees (first_name, last_name, employee_role_id, manager_id) values
+('Pink', 'Ranger', 1, null),
+('Turtle', 'Dove', 2, 1),
+('Bob', 'Roberts', 3, null);
+
+
