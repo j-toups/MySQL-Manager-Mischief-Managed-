@@ -1,0 +1,26 @@
+{
+  "name": "hw12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1",
+    "node": "^16.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-toups/MySQL-Manager-Mischief-Managed-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-toups/MySQL-Manager-Mischief-Managed-/issues"
+  },
+  "homepage": "https://github.com/j-toups/MySQL-Manager-Mischief-Managed-#readme"
+}
