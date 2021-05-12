@@ -16,10 +16,11 @@ connection.connect((err) => {
     exports.start();
 });
 
+//Prompts user to select what they want to do then move to that selection
 exports.start = () => {
     inquirer.prompt([
         {
-            type: 'list"',
+            type: 'list',
             message: 'What would you like to do?',
             name: 'choice',
             choices: [
@@ -46,3 +47,53 @@ exports.start = () => {
         }
     });
 }; 
+
+//Option: Add Employee
+exports.addEmployee = () => {
+    view.getAllRoles(function(rolesResults) {
+        var roles = [];
+        for(var i = 0; i < rolesResults.length; i++) {
+            roles.push(rolesResults[i].title);
+        }
+        var options = [
+        {
+            type: 'input',
+            message: 'Employee First Name',
+            name: 'firstName',
+            default: ' '
+        },
+        {
+            type: 'input',
+            message: 'Employee Last Name',
+            name: 'lastName',
+            default: ' '
+        },
+        {
+            type: 'list',
+            message: 'Employee Role',
+            name: 'role',
+            choices: roles
+        }];
+
+        inquirer.prompt(options)
+        .then((answers) => {
+            var roleId = null;
+            for(var i= 0; i < rolesResults.length; i++) {
+                if(rolesResults[i].title === answers.role) {
+                    roleId = rolesResults[i].role_id
+                }
+            }
+            connection.query('INSERT INTO employees SET ?',
+                {
+                    first_name: answers.firstName,
+                    last_name: answers.lastName,
+                    emp_role_id: roleId
+                },
+            function(err,results) {
+                if(err) throw err;
+                console.log('Successfully added');
+                app.start();
+            });
+        });
+    });
+};
