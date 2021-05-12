@@ -13,11 +13,11 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     console.log('connected');
-    start();
+    exports.start();
 });
 
 exports.start = () => {
-    inq.prompt([
+    inquirer.prompt([
         {
             type: 'list"',
             message: 'What would you like to do?',
@@ -45,4 +45,4 @@ exports.start = () => {
             return
         }
     });
-};
+}; 
